@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div>
+    <img src="{% static 'img/banner.jpg' %}" height="600px" width="100%">
+</div>
+<div style="margin-bottom:100px;">
+<h1 class="text-center">Our Collections</h1>
+   <p class="text-justify">Leaving shoppers’ questions unanswered can derail a sale or even worse, make shoppers abandon not just the purchase, but the site as well. One shopper in a recent study could not find the information he needed in the product description, so he left the site to search Google for more product information.</p>
+</div>
+  <div class="container" style="margin-bottom:300px;">
+<div class="row mx-auto">
+  {% for i in c %}
+  <div class="col-sm-4">
+    <div class="card" style="width: 20rem;">
+  <img src="{{i.image.url}}" class="card-img-top" alt="{{i.name}}" height="300px;" width="100%;">
+  <div class="card-body" style="poistion:relative;">
+    <h5 class="card-title title_heading">{{i.name}}</h5>
+    <a href="{% url 'shop:allproducts' i.slug%}" class="btn btn-primary link">PRODUCTS</a>
+  </div>
+  </div>
+  </div>
+  {% endfor %}
+
+
+</div>
+</div>
+
+{% endblock %}

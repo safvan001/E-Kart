@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="conatiner">
+    <div class="row">
+        <div class="col-sm-6">
+            <img src="{{p.image.url}}" alt="{{p.image.url}}">
+        </div>
+        <div class="col-sm-6">
+            <div>
+                <h1>Name:{{p.name}}</h1>
+                <p>{{p.price}}</p>
+                <p>{{p.description}}</p>
+                 <h3>Product Description</h3>
+                {% if p.stock <= 0 %}
+                <h2>OUT OF STOCK</h2>
+                {% else %}
+                <a class="btn btn-primary" href="{% url 'cart:add_to_cart' p.id %}"><i class="fa-solid fa-cart-shopping"></i></a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

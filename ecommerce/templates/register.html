@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    <div class="bg-secondary">
+    <h3>Sign-Up</h3>
+         <div class="mb-3">
+    <label for="form-label">UserName</label>
+    <input type="text" class="form-control" name="u" placeholder="user name">
+  </div>
+  <div class="mb-3">
+    <label for="form-label">FirstName</label>
+    <input type="text" class="form-control" name="fs" placeholder="first name">
+  </div>
+    <div class="mb-3">
+      <label for="form-label">LastName</label>
+    <input type="text" class="form-control" name="ls" placeholder="last name">
+    </div>
+    <div class="mb-3">
+        <label for="form-label">E-Mail</label>
+      <input type="email" class="form-control" name="e" placeholder="enter your mail">
+    </div>
+  <div class="mb-3">
+        <label for="form-label">Password</label>
+      <input type="password" class="form-control" name="p" placeholder="enter your password">
+    </div>
+  <div class="mb-3">
+        <label for="form-label">Confirm-password</label>
+      <input type="password" class="form-control" name="cp" placeholder="confirm your password">
+    </div>
+  <div class="mb-3">
+     <button class="btn btn-outline-danger" type="submit">Submit</button>
+  </div>
+        </div>
+</form>
+{% if messages %}
+{% for i in messages %}
+<ul class="messages">
+    <li>{{i}}</li>
+</ul>
+{% endfor %}
+{% endif %}
+{% endblock %}

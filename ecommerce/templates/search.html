@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<center>
+<div>
+    <h3>you have searched for{{query}}</h3>
+</div></center>
+
+  <div class="container" style="margin-bottom:300px;">
+<div class="row mx-auto">
+  {% for i in products %}
+  <div class="col-sm-4">
+    <div class="card" style="width: 20rem;">
+  <img src="{{i.image.url}}" class="card-img-top" alt="{{i.name}}" height="300px;" width="100%;">
+  <div class="card-body" style="poistion:relative;">
+    <h5 class="card-title title_heading">{{i.name}}</h5>
+    <a href="{% url 'shop:prodetail' i.slug %}" class="btn btn-primary link">DETAILS</a>
+  </div>
+  </div>
+  </div>
+  {% empty %}
+  <div>
+    <p>0 RESULTS FOUND</p>
+  </div>
+
+ {% endfor %}
+</div>
+</div>
+
+{% endblock %}
