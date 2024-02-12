@@ -37,4 +37,3 @@ class Orders(models.Model):
         return self.noofitems*self.products.price
 
 
-

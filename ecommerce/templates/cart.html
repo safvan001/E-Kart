@@ -55,7 +55,52 @@
 
         </table>
          <a href="{% url 'shop:allProdCat' %}"><button class="btn btn-outline-success" href="">CONTINUE SHOPPING</button></a>
-        <a href="{% url 'cart:order' %}"><button class="btn btn-outline-success"  href="">PLACE ORDER</button></a>
+        <button id="rzp-button1">Pay with Razorpay</button>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+var options = {
+    "key": "rzp_test_2voTrBZq69eFuI",
+    "amount": 10000, // 100 INR in paise
+    "currency": "INR",
+    "name": "Acme Corp",
+    "description": "Test Transaction",
+    "image": "https://example.com/your_logo",
+    "order_id": "order_IluGWxBm9U8zJ8", // Replace with the actual order ID
+    "handler": function (response){
+        alert(response.razorpay_payment_id);
+        alert(response.razorpay_order_id);
+        alert(response.razorpay_signature);
+    },
+    "prefill": {
+        "name": "Gaurav Kumar",
+        "email": "example@example.com",
+        "contact": "9000090000"
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+rzp1.on('payment.failed', function (response){
+    alert(response.error.code);
+    alert(response.error.description);
+    alert(response.error.source);
+    alert(response.error.step);
+    alert(response.error.reason);
+    alert(response.error.metadata.order_id);
+    alert(response.error.metadata.payment_id);
+});
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+};
+</script>
+
+
+</script>
     </div>
 </div>
 </div>

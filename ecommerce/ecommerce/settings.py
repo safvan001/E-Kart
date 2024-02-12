@@ -129,3 +129,8 @@ STATICFILES_DIRS=[os.path.join(BASE_DIR,'static')]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ecommerce.settings')
+
+
+
+# RAZOR_PAY_KEY_ID='rzp_test_nDKGzaUCJefDZV'
+# RAZOR_PAY_KEY_SECRET='bLptjBxcCY7Z9CloTVFhV5OI'

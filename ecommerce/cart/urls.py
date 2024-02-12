@@ -27,8 +27,7 @@ urlpatterns = [
     path('cart_view',views.cart_view,name="cart_view"),
     path('decreaser/<int:p>/',views.decreaser,name="decreaser"),
     path('delete/<int:p>/',views.delete,name="delete"),
-    path('orderform',views.order,name="order"),
+    # path('orderform',views.order,name="order"),
     path('yourorders',views.u_r_orders,name="u_r_orders"),
-
 
 ]
